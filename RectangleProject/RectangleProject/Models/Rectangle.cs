@@ -11,13 +11,19 @@ namespace RectangleProject.Models
 
         public Rectangle(double SideA, double SideB)
         {
+            if (SideA < 1 || SideB < 1)
+                throw new RectangleSideIsNullOrZero("Nulla oldalú téglalapot nem lehet létrehozni!");
+
             this.a = SideA;
             this.b = SideB;
+            
         }
 
         public double SideA {
             set
             {
+                if (value < 1)
+                    throw new RectangleSideIsNullOrZero("Nulla oldalú téglalapot nem lehet létrehozni!");
                 a = value;
             }
             get
@@ -29,6 +35,8 @@ namespace RectangleProject.Models
         {
             set
             {
+                if (value < 1)
+                    throw new RectangleSideIsNullOrZero("Nulla oldalú téglalapot nem lehet létrehozni!");
                 b = value;
             }
             get
